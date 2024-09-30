@@ -70,9 +70,14 @@ min_calories = input("Enter minimum calories (or leave blank): ") or None
 max_calories = input("Enter maximum calories (or leave blank): ") or None
 save_to_file = input("Do you want to save the recipe to a file? (yes/no): ").lower()
 
+
 # Call the function with user inputs
 recipes = search_recipes(query, diet, health, cuisineType, mealType)
-
+if save_to_file == 'yes':
+    with open("recipes.json", "w") as f:
+        json.dump(recipes, f)
+        print("Recipes saved to recipes.json")
+        
 if recipes:
     # Print the output in the desired format
     for recipe in recipes:
