@@ -18,10 +18,11 @@ def search_recipes(query, diet=None, health=None, cuisineType=None, mealType=Non
         "Dish Type": dish_type
     }
 
+    params["dishType"] = dish_type
+    
     if min_calories or max_calories:
         params["Calories"] = f"{min_calories or 0}-{max_calories or ''}"
 
-        params["dishType"] = dish_type
 
     try:
         response = requests.get(url, params=params)
