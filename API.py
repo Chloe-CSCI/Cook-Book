@@ -4,7 +4,7 @@
 import requests
 import json
 
-def search_recipes(query, diet=None, health=None, cuisineType=None, mealType=None, calories=None):
+def search_recipes(query, diet=None, health=None, cuisineType=None, mealType=None, calories=None, dish_type=None):
     url = "https://api.edamam.com/search"  # API endpoint
     params = {
         "q": query,
@@ -14,9 +14,10 @@ def search_recipes(query, diet=None, health=None, cuisineType=None, mealType=Non
         "health": health,
         "cuisineType": cuisineType,
         "mealType": mealType,
-        "Calories": calories
+        "Calories": calories,
+        "Dish Type": dish_type
     }
-    
+
     if min_calories or max_calories:
         params["Calories"] = f"{min_calories or 0}-{max_calories or ''}"
 
