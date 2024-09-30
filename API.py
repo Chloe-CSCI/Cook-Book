@@ -16,9 +16,11 @@ def search_recipes(query, diet=None, health=None, cuisineType=None, mealType=Non
         "mealType": mealType,
         "Calories": calories
     }
-
+    
     if min_calories or max_calories:
         params["Calories"] = f"{min_calories or 0}-{max_calories or ''}"
+
+        params["dishType"] = dish_type
 
     try:
         response = requests.get(url, params=params)
@@ -69,6 +71,7 @@ mealType = input("Enter meal type (e.g., Breakfast, Dinner), or leave blank: ") 
 min_calories = input("Enter minimum calories (or leave blank): ") or None
 max_calories = input("Enter maximum calories (or leave blank): ") or None
 save_to_file = input("Do you want to save the recipe to a file? (yes/no): ").lower()
+dish_type = input("Enter dish type (soup, salad, sandwhich): ") or None
 
 
 # Call the function with user inputs
@@ -77,7 +80,7 @@ if save_to_file == 'yes':
     with open("recipes.json", "w") as f:
         json.dump(recipes, f)
         print("Recipes saved to recipes.json")
-        
+
 if recipes:
     # Print the output in the desired format
     for recipe in recipes:
