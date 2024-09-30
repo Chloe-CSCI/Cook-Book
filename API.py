@@ -4,7 +4,7 @@
 import requests
 import json
 
-def search_recipes(query, diet=None, health=None, cuisineType=None, mealType=None):
+def search_recipes(query, diet=None, health=None, cuisineType=None, mealType=None, calories=None):
     url = "https://api.edamam.com/search"  # API endpoint
     params = {
         "q": query,
