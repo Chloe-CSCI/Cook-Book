@@ -13,7 +13,8 @@ def search_recipes(query, diet=None, health=None, cuisineType=None, mealType=Non
         "diet": diet,
         "health": health,
         "cuisineType": cuisineType,
-        "mealType": mealType
+        "mealType": mealType,
+        "Calories": calories
     }
 
     try:
@@ -62,6 +63,8 @@ diet = input("Enter diet type (e.g., low-carb, balanced), or leave blank: ") or 
 health = input("Enter health restrictions (e.g., peanut-free, vegan), or leave blank: ") or None
 cuisineType = input("Enter cuisine type (e.g., Asian, Italian), or leave blank: ") or None
 mealType = input("Enter meal type (e.g., Breakfast, Dinner), or leave blank: ") or None
+min_calories = input("Enter minimum calories (or leave blank): ") or None
+max_calories = input("Enter maximum calories (or leave blank): ") or None
 
 # Call the function with user inputs
 recipes = search_recipes(query, diet, health, cuisineType, mealType)
