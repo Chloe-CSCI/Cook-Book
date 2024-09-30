@@ -41,7 +41,8 @@ def search_recipes(query, diet=None, health=None, cuisineType=None, mealType=Non
                 "total": nutrition_info.get("ENERC_KCAL", {}).get("quantity"),  # Total calories
                 "hasRDI": True,  # Assuming it has RDI information
                 "daily": nutrition_info.get("ENERC_KCAL", {}).get("daily"),  # Daily value of calories
-                "unit": "kcal"   # Unit for energy (calories)
+                "unit": "kcal",   # Unit for energy (calories)
+                "ingredients": recipe_info.get("Ingredients", [])
             })
 
         return minimal_output  # Return the minimal information as a list
