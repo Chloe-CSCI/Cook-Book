@@ -17,6 +17,9 @@ def search_recipes(query, diet=None, health=None, cuisineType=None, mealType=Non
         "Calories": calories
     }
 
+    if min_calories or max_calories:
+        params["Calories"] = f"{min_calories or 0}-{max_calories or ''}"
+
     try:
         response = requests.get(url, params=params)
         response.raise_for_status()  # Raises HTTPError for bad responses (4xx, 5xx)
@@ -65,6 +68,7 @@ cuisineType = input("Enter cuisine type (e.g., Asian, Italian), or leave blank: 
 mealType = input("Enter meal type (e.g., Breakfast, Dinner), or leave blank: ") or None
 min_calories = input("Enter minimum calories (or leave blank): ") or None
 max_calories = input("Enter maximum calories (or leave blank): ") or None
+save_to_file = input("Do you want to save the recipe to a file? (yes/no): ").lower()
 
 # Call the function with user inputs
 recipes = search_recipes(query, diet, health, cuisineType, mealType)
