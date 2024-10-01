@@ -2,7 +2,7 @@
 This Project will search for recipes from a recipe search API, and get the information for the user.
 
 ### Issues
-The issues that I had were mostly in the terminal figuring out how to push the code into GitHub.
+The issues that I had were mostly in the terminal figuring out how to push the code into GitHub. I was able to solve this issue by researching solutions and testing those different solutions in the terminal.
 
 ## Changes
 The changes that I made to the code were:
